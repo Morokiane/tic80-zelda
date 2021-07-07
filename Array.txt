@@ -1,0 +1,23 @@
+slot={
+	x1=13,
+	y1=5,
+	on=false
+}
+
+function TIC()
+	cls()
+	
+	if btnp(0) then
+		slot.on=true
+	end
+--[[
+	for k,v in pairs(slot) do
+		print("on")
+	end
+]]
+	if slot.on==true then
+		sluty=slot.x1
+		print(sluty)
+	end
+end
+ 
