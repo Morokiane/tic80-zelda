@@ -21,3 +21,4 @@ function TIC()
 	end
 end
  
+Tables must have something in [1] if something isn't there and an object is tried to be forced into a slot it'll error. When an object is removed all other objects move up one.
