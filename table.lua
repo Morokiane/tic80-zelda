@@ -12,7 +12,7 @@ w,h=240,136
 hw,hh=w/2,h/2
 t=0
 win={}
-msgbox=true
+msgbox=false
 txt="Up/Down\nAdd objects to table\n\nLeft/Right\nMove objects between tables\n\nZ remove from top of Obj table\n\nX remove from bottom of Obj table\n\nA to close this window."
 
 --Easier controls to remember
@@ -41,6 +41,10 @@ function TIC()
 	if msgbox==false then
 		print("Obj Table: "..#obj,0,0,12)
 		print("Moved Table: "..#moved,110,0,12)
+		--[[Checks to see if the moved table has apple in it]]
+		if contains(obj,x) then
+			print("Found apple",0,128,12)
+		end
 		--[[Print the objects that are in the
 						tables down the screen]]
 		for counter=1,#obj do
@@ -109,13 +113,31 @@ function DrawWin()
 		rect(w.x,w.y,w.w,w.h,2)
 	end
 end
+--Used to find if a value exists in the moved table
+function contains(table,x)
+	for _,v in pairs(table) do
+		if v=="apple" then 
+			return true
+		end
+	end
+	return false
+end
 -- <TILES>
--- 000:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+-- 000:1111111111111111111111111111111111111111111111111111111111111111
 -- 001:2222222222222222222222222222222222222222222222222222222222222222
 -- 002:3333333333333333333333333333333333333333333333333333333333333333
 -- 003:4444444444444444444444444444444444444444444444444444444444444444
 -- 004:5555555555555555555555555555555555555555555555555555555555555555
 -- 005:6666666666666666666666666666666666666666666666666666666666666666
+-- 006:7777777777777777777777777777777777777777777777777777777777777777
+-- 007:8888888888888888888888888888888888888888888888888888888888888888
+-- 008:9999999999999999999999999999999999999999999999999999999999999999
+-- 009:aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+-- 010:bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb
+-- 011:cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc
+-- 012:dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd
+-- 013:eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee
+-- 014:ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
 -- </TILES>
 
 -- <WAVES>
