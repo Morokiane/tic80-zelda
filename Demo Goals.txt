@@ -1,0 +1,6 @@
+Zelda Gameboy: TIC-80 Demo
+
+Small outside area with couple of zones - Town, Forest, Beach
+Small dungeon
+Goal is to collect 4 heart pieces
+
